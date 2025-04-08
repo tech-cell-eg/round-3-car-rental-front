@@ -18,7 +18,7 @@ const iconMap: Record<IconProps['name'], string> = {
   filter: filter,
 };
 
-const Icon: React.FC<IconProps> = ({ name, size = 20, className = "" }) => {
+const Icon: React.FC<IconProps> = ({ name, size = 24, className = "" }) => {
   const iconSrc = iconMap[name];
 
   if (!iconSrc) {
@@ -32,7 +32,7 @@ const Icon: React.FC<IconProps> = ({ name, size = 20, className = "" }) => {
       alt={`${name} icon`}
       width={size}
       height={size}
-      className={`${className}`}
+      className={`${className} cursor-pointer`}
     />
   );
 };

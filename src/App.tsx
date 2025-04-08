@@ -1,15 +1,14 @@
-import HeaderActions from "./components/HeaderActions"
-import Logo from "./components/Logo"
-import Search from "./components/Search"
+// import './App.css'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <header className="flex gap-8 justify-between items-center">
-      <Logo />
-      <Search />
-      <HeaderActions />
-  </header>
-  )
+    <>
+      <Header />
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;

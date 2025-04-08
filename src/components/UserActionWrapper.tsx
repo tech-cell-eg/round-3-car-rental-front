@@ -15,12 +15,13 @@ function UserActionWrapper() {
   return (
     <div className="hidden md:flex gap-5 items-center">
       {actions.map((action) => (
-        <span
+        <button
           key={action.id}
+          type="button"
           className="flex p-[10px] border border-gray-300 rounded-full cursor-pointer"
         >
           <Icon name={action.icon} />
-        </span>
+        </button>
       ))}
     </div>
   );
