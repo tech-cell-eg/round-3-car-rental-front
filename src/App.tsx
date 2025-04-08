@@ -1,18 +1,14 @@
 // import './App.css'
-import Footer from './components/Footer'
-import './App.css'
-import Logo from './components/Logo'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
-
-  return <>
-  
-    {/* <h1 className="text-red-500">Tailwind Test!</h1> */}
-    <Logo />
-    <Footer />
-    
-  </> 
-  
+  return (
+    <>
+      <Header />
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;
