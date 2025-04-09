@@ -3,8 +3,8 @@ import { InputText } from "primereact/inputtext";
 
 function SearchWrapper() {
   return (
-    <div className="flex justify-between items-center gap-4 w-full md:w-[45%] py-2.5 px-5 md:border md:rounded-3xl">
-      <div className="flex items-center gap-2 md:gap-5 w-full p-3 md:p-none border md:border-none rounded-[10px] md:rounded-none">
+    <div className="flex justify-between items-center gap-4 w-full md:w-8/12 py-2 md:px-5 md:border md:border-[#C3D4E966] md:rounded-3xl">
+      <div className="flex items-center gap-2 md:gap-5 w-full py-2 ps-5 md:py-0 md:ps-0 border md:border-none rounded-[10px] md:rounded-none">
         <Icon name="search" />
         <InputText
           type="text"
@@ -15,7 +15,7 @@ function SearchWrapper() {
 
       <button
         type="button"
-        className="p-3 md:p-none border md:border-none rounded-[10px] md:rounded-none"
+        className="p-3 md:p-0 border md:border-none rounded-[10px] md:rounded-none"
       >
         <Icon name="filter" />
       </button>

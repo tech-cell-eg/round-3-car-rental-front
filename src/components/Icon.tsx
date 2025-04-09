@@ -3,22 +3,33 @@ import heartIcon from "../assets/icons/heart.svg";
 import notificationIcon from "../assets/icons/notification.svg";
 import search from "../assets/icons/search-normal.svg";
 import filter from "../assets/icons/filter.svg";
+import menu from "../assets/icons/menu.svg";
+import close from "../assets/icons/close.svg";
 
 type IconProps = {
-  name: "settings" | "heart" | "notification" | "search" | "filter";
+  name:
+    | "settings"
+    | "heart"
+    | "notification"
+    | "search"
+    | "filter"
+    | "menu"
+    | "close";
   size?: number;
   className?: string;
 };
 
-const iconMap: Record<IconProps['name'], string> = {
+const iconMap: Record<IconProps["name"], string> = {
   settings: settingsIcon,
   heart: heartIcon,
   notification: notificationIcon,
   search: search,
   filter: filter,
+  menu: menu,
+  close: close,
 };
 
-const Icon: React.FC<IconProps> = ({ name, size = 24, className = "" }) => {
+const Icon: React.FC<IconProps> = ({ name, className = "" }) => {
   const iconSrc = iconMap[name];
 
   if (!iconSrc) {
@@ -30,9 +41,7 @@ const Icon: React.FC<IconProps> = ({ name, size = 24, className = "" }) => {
     <img
       src={iconSrc}
       alt={`${name} icon`}
-      width={size}
-      height={size}
-      className={`${className} cursor-pointer`}
+      className={`w-[15px] md:w-[21px] ${className} cursor-pointer`}
     />
   );
 };

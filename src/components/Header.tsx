@@ -5,20 +5,24 @@ import HeaderActions from "./HeaderActions";
 function Header() {
   return (
     <>
-      <header className="h-[288px] md:h-[124px] py-8 md:py-[40px] px-6 md:px-[32px]">
+      <header className="md:h-auto py-8 md:py-[35px] px-6 md:px-[32px]">
         {/* on mobile and small screens */}
-        <div className="md:hidden flex-col">
+        <div className="md:hidden flex flex-col gap-4">
           <div className="flex justify-between items-center">
             <Logo />
             <HeaderActions />
           </div>
-          <SearchWrapper />
+          <div className="mb-[102px]">
+            <SearchWrapper />
+          </div>
         </div>
 
         {/* on medium and larger screens */}
         <div className="hidden md:flex justify-between items-center">
-          <Logo />
-          <SearchWrapper />
+          <div className="flex justify-between items-center gap-14 w-[55%]">
+            <Logo />
+            <SearchWrapper />
+          </div>
           <HeaderActions />
         </div>
       </header>
