@@ -1,28 +1,18 @@
-import Icon from "./Icon";
-
-type Action = {
-  id: number;
-  icon: "heart" | "notification" | "settings";
-};
+import { useState } from "react";
+import MenuButton from "./MenuButton";
+import UserActionButtons from "./UserActionButtons";
 
 function UserActionWrapper() {
-  const actions: Action[] = [
-    { id: 1, icon: "heart" },
-    { id: 2, icon: "notification" },
-    { id: 3, icon: "settings" },
-  ];
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+  const handleMenuToggle = (): void => {
+    setIsMenuOpen((prev) => !prev);
+  };
 
   return (
-    <div className="hidden md:flex gap-5 items-center">
-      {actions.map((action) => (
-        <button
-          key={action.id}
-          type="button"
-          className="flex p-[10px] border border-gray-300 rounded-full cursor-pointer"
-        >
-          <Icon name={action.icon} />
-        </button>
-      ))}
+    <div className="flex items-center gap-2">
+      <UserActionButtons isMenuOpen={isMenuOpen} />
+      <MenuButton handleMenuButton={handleMenuToggle} isMenuOpen={isMenuOpen} />
     </div>
   );
 }
