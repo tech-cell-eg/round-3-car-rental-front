@@ -32,13 +32,13 @@ function HeroBannersWrapper() {
     <section className="flex flex-col md:flex-row justify-between gap-7 px-7">
       {/* Show only the first banner on small screens */}
       <div className="absolute top-[-15%] start-1/2 -translate-x-1/2 block md:hidden w-[95%]">
-        <HeroBanner item={banners[0]} />
+        <HeroBanner banner={banners[0]} />
       </div>
 
       {/* Show both banners on medium and larger screens */}
       <div className="hidden md:flex w-full justify-between gap-7">
         {banners.map((banner) => (
-          <HeroBanner key={banner.id} item={banner} />
+          <HeroBanner key={banner.id} banner={banner} />
         ))}
       </div>
     </section>
