@@ -47,7 +47,6 @@ const FooterTop = () => {
             <div className="mb-7">
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 mb-6 md:mb-0">
                     {Object.entries(links).map(([key, value]) => (
-                        
                             <LinkListFooter
                                 key={key}
                                 title={key.charAt(0).toUpperCase() + key.slice(1)}    
