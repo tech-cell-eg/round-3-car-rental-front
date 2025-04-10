@@ -1,23 +1,10 @@
-
-import Payment from './pages/Payment'
-
-
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes";
 
 function App() {
-
-
-  
-  
-  
-  
-  
   return (
     <>
-      <Header />
-      <Payment />
-      <Footer />
+          <RouterProvider router={router} />
     </>
   );
 }
