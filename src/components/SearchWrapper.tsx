@@ -9,7 +9,7 @@ function SearchWrapper() {
         <InputText
           type="text"
           placeholder="Search something here..."
-          className="w-full text-sm md:text-base outline-none"
+          className="w-full text-sm md:text-base outline-none shadow-none border-none focus:border-none focus:ring-0"
         />
       </div>
 
