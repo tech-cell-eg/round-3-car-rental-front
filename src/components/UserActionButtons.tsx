@@ -26,7 +26,7 @@ function UserActionButtons({ isMenuOpen }: UserActionButtonsProps) {
         <button
           key={action.id}
           type="button"
-          className="flex p-[5px] md:p-[10px] md:border border-gray-300 rounded-full cursor-pointer"
+          className="flex p-[5px] md:p-[10px] md:border border-content-dimmed rounded-max cursor-pointer"
         >
           <Icon name={action.icon} />
         </button>
