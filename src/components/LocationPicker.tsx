@@ -1,5 +1,5 @@
-import { Dropdown } from "primereact/dropdown"
-import { LocationPickerProps } from "../types"
+import { Dropdown } from "primereact/dropdown";
+import { LocationPickerProps } from "../types";
 
 const LocationPicker : React.FC<LocationPickerProps> = ({label,options, value, onChange, placeholder ,className}) => {
     return <>
@@ -8,6 +8,7 @@ const LocationPicker : React.FC<LocationPickerProps> = ({label,options, value, o
             <Dropdown id="location" value={value} onChange={(e) => onChange(e.value)} options={options} placeholder={placeholder} className={`text-gray-500 shadow-none border-none focus:border-none focus:ring-0 ${className}`} />      
         </div>
     </> 
-}
+};
 
-export default LocationPicker
+
+export default LocationPicker;
