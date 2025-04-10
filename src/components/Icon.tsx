@@ -5,6 +5,7 @@ import search from "../assets/icons/search-normal.svg";
 import filter from "../assets/icons/filter.svg";
 import menu from "../assets/icons/menu.svg";
 import close from "../assets/icons/close.svg";
+import swap from "../assets/icons/Swap.svg";
 
 type IconProps = {
   name:
@@ -14,7 +15,8 @@ type IconProps = {
     | "search"
     | "filter"
     | "menu"
-    | "close";
+    | "close"
+    | "swap";
   size?: number;
   className?: string;
 };
@@ -27,6 +29,7 @@ const iconMap: Record<IconProps["name"], string> = {
   filter: filter,
   menu: menu,
   close: close,
+  swap: swap,
 };
 
 const Icon: React.FC<IconProps> = ({ name, className = "" }) => {
@@ -41,7 +44,7 @@ const Icon: React.FC<IconProps> = ({ name, className = "" }) => {
     <img
       src={iconSrc}
       alt={`${name} icon`}
-      className={`w-[15px] md:w-[21px] ${className} cursor-pointer`}
+      className={`w-[15px] md:w-[21px] ${className}`}
     />
   );
 };

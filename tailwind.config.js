@@ -46,6 +46,25 @@ export default {
           500: "#0D3559",
         },
       },
+      borderRadius: {
+        sm: "4px", // buttons
+        md: "6px",
+        lg: "8px",
+        xl: "10px", // banners, cards, search input on mobile
+        "2xl": "12px",
+        pill: "70px", // search input on medium screen
+        max: "100%", // fully circular elements
+      },
+      transitionDuration: {
+        base: "300ms", // default, buttons hover
+        medium: "400ms",
+        slow: "500ms",
+        slower: "600ms",
+        long: "700ms",
+        longer: "800ms",
+        extended: "900ms",
+        deliberate: "1000ms",
+      },
     },
   },
   plugins: [],
