@@ -1,3 +1,5 @@
+
+// BillingSection
 export interface BillingSectionProps {
     title: string;
     fields: {
@@ -9,42 +11,35 @@ export interface BillingSectionProps {
     }[];
 }
 
-
+// RentalSection
 export interface LocationPickerProps {
   label: string;
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
   options: string[];
+  className?: string
 }
+
 export interface TimePickerProps {
   label: string;
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
   options: string[];
+  className?: string;
 }
-export interface TimePickerProps {
+export interface DatePickerProps {
   label: string;
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
   options: string[];
+  className?: string;
 }
-
-
-export interface RadioButtonPickerProps {
-  value: string;
-  onChange: (value: string) => void;
-  checked: boolean;
-  id: string;
-  label: string;
-  name: string;
-  icon: string;
-}
-
-export interface RentalSectionProps{
-    title: string;
+// RentalSection
+export interface RentalSectionProps {
+  title: string;
   pickUpLocation: string;
   dropOffLocation: string;
   pickUpDate: string;
@@ -59,11 +54,23 @@ export interface RentalSectionProps{
   setDropOffTime: (value: string) => void;
 }
 
+// RadioButtonPicker
+export interface RadioButtonPickerProps {
+  value: string;
+  onChange: (value: string) => void;
+  checked: boolean;
+  id: string;
+  label: string;
+  name: string;
+  icon: string;
+}
 
+// PickAndDrop
 export interface PickAndDropProps {
   title: string;
 } 
 
+// PaymentSection
 export interface PaymentSectionProps {
   title: string;
   cardNumber: string;
@@ -78,16 +85,14 @@ export interface PaymentSectionProps {
   setPaymentMethod: (value: string) => void;
 }
 
-
+// Checkbox
 export interface CheckboxProps {
     label: string; 
     onChange: (checked: boolean ) => void;
     checked: boolean;
     id: string; 
 }
-
-
-
+// LabeledInput
 export interface LabeledInputProps {
         label: string,
         name?: string,
@@ -98,3 +103,4 @@ export interface LabeledInputProps {
         disabled?: boolean,
         className?: string  
     }
+

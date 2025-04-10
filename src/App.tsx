@@ -1,15 +1,13 @@
-import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
-import Payment from "./pages/Payment";
-import Footer from "./components/Footer";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes";
+
 
 function App() {
   return (
     <>
-      <Header />
-      <HeroSection />
-      <Payment />
-      <Footer />
+
+          <RouterProvider router={router} />
+
     </>
   );
 }

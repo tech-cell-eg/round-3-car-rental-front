@@ -11,12 +11,14 @@ const Payment = () => {
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
+
   const [pickUpLocation, setPickUpLocation] = useState('');
   const [dropOffLocation, setDropOffLocation] = useState('');
   const [pickUpDate, setPickUpDate] = useState('');
   const [dropOffDate, setDropOffDate] = useState('');
   const [pickUpTime, setPickUpTime] = useState('');
   const [dropOffTime, setDropOffTime] = useState('');
+  
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cardHolder, setCardHolder] = useState('');
