@@ -7,13 +7,13 @@ import Layout from "../pages/Layout";
 import NotFound from "../pages/NotFound";
 import DetailCar from "../pages/DetailCar";
 import ROUTES from "./routes";
-import HeroSection from "../components/HeroSection";
+import Home from "../pages/Home";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path={ROUTES.HOME} element={<Layout />}>
-        <Route index element={<HeroSection />} />
+        <Route index element={<Home />} />
         <Route path={ROUTES.DETAILCAR} element={<DetailCar />} />
       </Route>
 
