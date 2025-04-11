@@ -5,8 +5,9 @@ interface PopularCarsSectionProps {
 
 function PopularCarsSection({ count, headingValue }: PopularCarsSectionProps) {
   return (
-    <section className="flex flex-col gap-4 mt-12 py-5 px-8 bg-surface-secondary">
+    <section className="flex flex-col gap-4 mt-12 py-5 px-8">
       <h3 className="ms-2 font-medium text-content-soft">{headingValue}</h3>
+
       <div className="grid grid-cols-4 gap-8">
         {Array.from({ length: count }).map((_, index) => (
           <article
