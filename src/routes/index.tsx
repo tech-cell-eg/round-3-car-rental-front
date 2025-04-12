@@ -7,6 +7,7 @@ import Layout from "../pages/Layout";
 import Payment from "../pages/Payment";
 import NotFound from "../pages/NotFound";
 import ROUTES from "./routes";
+import DetailCar from "../pages/DetailCar";
 
 
 const router = createBrowserRouter(
@@ -15,8 +16,7 @@ const router = createBrowserRouter(
       <Route path={ROUTES.HOME} element={<Layout />}>
         <Route index element={<Payment />} />
         <Route path={ROUTES.PAYMENT} element={<Payment />} />
-        
-      
+        <Route path={ROUTES.DETAILCAR} element={<DetailCar />} />
       </Route>
 
 
