@@ -1,7 +1,7 @@
 const ROUTES = {
     HOME: "/",
     DETAILCAR: "/detailcar",
-    PAYMENT: "/",
+    PAYMENT: "/payment",
     NOT_FOUND: "*",
 }
 

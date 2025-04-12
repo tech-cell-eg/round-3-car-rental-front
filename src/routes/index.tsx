@@ -6,7 +6,6 @@ import {
 import Layout from "../pages/Layout";
 import Payment from "../pages/Payment";
 import NotFound from "../pages/NotFound";
-import DetailCar from "../pages/DetailCar";
 import ROUTES from "./routes";
 
 
@@ -15,7 +14,9 @@ const router = createBrowserRouter(
     <>
       <Route path={ROUTES.HOME} element={<Layout />}>
         <Route index element={<Payment />} />
-        <Route path={ROUTES.DETAILCAR} element={<DetailCar />} />
+        <Route path={ROUTES.PAYMENT} element={<Payment />} />
+        
+      
       </Route>
 
 
