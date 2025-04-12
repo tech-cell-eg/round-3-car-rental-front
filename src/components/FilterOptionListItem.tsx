@@ -26,11 +26,11 @@ function FilterOptionListItem({ item }: FilterOptionListItemProps) {
       : `${item.capacity} ${item.capacity <= 7 ? "Person" : "or More"}`;
 
   return (
-    <li className="flex items-center gap-2">
+    <li className="flex items-center gap-2 w-fit">
       <input type="checkbox" name="" id={inputId} />
       <label
         htmlFor={inputId}
-        className="font-medium text-content-secondary leading-[150%]"
+        className="flex items-center gap-1 font-medium text-content-secondary leading-[150%]"
       >
         {labelText}{" "}
         <span className="text-sm text-content-base">({item.count})</span>

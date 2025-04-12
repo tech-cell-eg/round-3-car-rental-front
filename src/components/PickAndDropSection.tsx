@@ -10,7 +10,7 @@ const times = ["09:00 AM", "12:00 PM", "03:00 PM"];
 
 function PickAndDropSection() {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center px-3 md:px-7">
+    <div className="flex flex-col md:flex-row justify-between items-center">
       <div className="w-full md:w-[45%] py-4 px-6 bg-surface-default rounded-lg">
         <PickAndDrop title="Pick-Up" />
         <div className="grid grid-cols-3">
