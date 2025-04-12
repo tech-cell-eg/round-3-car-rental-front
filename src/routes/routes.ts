@@ -1,8 +1,9 @@
 const ROUTES = {
-    HOME: "/",
-    DETAILCAR: "/detailcar",
-    PAYMENT: "/",
-    NOT_FOUND: "*",
-}
+  HOME: "/",
+  DETAILCAR: "/detailcar",
+  PAYMENT: "/",
+  CATEGORY: "/category",
+  NOT_FOUND: "*",
+};
 
 export default ROUTES;
