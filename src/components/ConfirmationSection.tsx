@@ -1,19 +1,15 @@
-// src/components/ConfirmationSection.tsx
 import React, { useState } from 'react';
 import Checkbox from './Checkbox';
 import SafeMesg from './SafeMesg';
 
-const ConfirmationSection: React.FC = () => {
-    const [marketingEmails, setMarketingEmails] = useState(false);
-    const [termsAgreed, setTermsAgreed] = useState(false);
+interface ConfirmationSectionProps {
+    termsAccepted: boolean;
+    setTermsAccepted: (value: boolean) => void;
+    error?: string | undefined;
+}
 
-    const handleRentNow = () => {
-        if (!termsAgreed) {
-            alert('You must agree to the terms and conditions.');
-            return;
-        }
-        alert('Rental confirmed!');
-    };
+const ConfirmationSection: React.FC<ConfirmationSectionProps> = ({ termsAccepted, setTermsAccepted, error }) => {
+    const [marketingEmails, setMarketingEmails] = useState(false);
 
     return (
         <div className="bg-white p-5 rounded-md shadow-sm">
@@ -35,23 +31,19 @@ const ConfirmationSection: React.FC = () => {
                     onChange={setMarketingEmails}
                 />
                 <Checkbox
-                    id="termsAgreed"
+                    id="termsAccepted"
                     label="I agree with our terms and conditions and privacy policy."
-                    checked={termsAgreed}
-                    onChange={setTermsAgreed}
-                />
+                    checked={termsAccepted}
+                    onChange={setTermsAccepted}
+                    />
+                {error && <p className="text-red-500 text-sm">{error}</p>}
             </div>
 
-            <div className="mt-6 px-3">
-                <button
-                    onClick={handleRentNow}
-                    className="w-full bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 transition"
-                >
-                    Rent Now
-                </button>
-            </div>
-
-            <SafeMesg text1="All your data are safe" text2="We are using the most advanced security to provide you the best experience ever." />
+                
+            <SafeMesg
+                text1="All your data are safe"
+                text2="We are using the most advanced security to provide you the best experience ever."
+            />
         </div>
     );
 };

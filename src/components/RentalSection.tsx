@@ -20,6 +20,8 @@ const RentalSection: React.FC<RentalSectionProps> = ({
     setDropOffDate,
     setPickUpTime,
     setDropOffTime,
+    errors
+    
 }) => {
     const locations = ['Location 1', 'Location 2', 'Location 3'];
     const dates = ['2025-04-10', '2025-04-11', '2025-04-12'];
@@ -46,7 +48,9 @@ const RentalSection: React.FC<RentalSectionProps> = ({
                             options={locations}
                             placeholder="Select the city"
                             className='rounded-md w-full bg-gray-100'
+                            error={errors?.pickUpLocation}
                         />
+                        
                         <DatePicker
                             label="Date"
                             value={pickUpDate}
@@ -54,6 +58,7 @@ const RentalSection: React.FC<RentalSectionProps> = ({
                             options={dates}
                             placeholder="Select the date"
                             className='rounded-md w-full bg-gray-100'
+                            error={errors?.pickUpDate}
                         />
                         <TimePicker
                             label="Time"
@@ -62,6 +67,7 @@ const RentalSection: React.FC<RentalSectionProps> = ({
                             options={times}
                             placeholder="Select the time"
                             className='rounded-md w-full bg-gray-100'
+                            error={errors?.pickUpTime}
                         />
                     </div>
                 </div>
@@ -77,6 +83,7 @@ const RentalSection: React.FC<RentalSectionProps> = ({
                             options={locations}
                             placeholder="Select the city"
                             className='rounded-md w-full bg-gray-100'
+                            error={errors?.dropOffLocation}
                         />
                         <DatePicker
                             label="Date"
@@ -85,6 +92,7 @@ const RentalSection: React.FC<RentalSectionProps> = ({
                             options={dates}
                             placeholder="Select the date"
                             className='rounded-md w-full bg-gray-100'
+                            error={errors?.dropOffDate}
                         />
                         <TimePicker
                             label="Time"
@@ -93,6 +101,7 @@ const RentalSection: React.FC<RentalSectionProps> = ({
                             options={times}
                             placeholder="Select the time"
                             className='rounded-md w-full bg-gray-100'
+                            error={errors?.dropOffTime}
                         />
                     </div>
                 </div>
