@@ -31,7 +31,7 @@ function HeroBannersWrapper() {
   return (
     <section className="flex flex-col md:flex-row justify-between gap-7">
       {/* Show only the first banner on small screens */}
-      <div className="absolute top-[-8%] start-1/2 -translate-x-1/2 block md:hidden w-[95%]">
+      <div className=" md:hidden">
         <HeroBanner banner={banners[0]} />
       </div>
 
