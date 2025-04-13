@@ -1,11 +1,10 @@
 const ROUTES = {
-
     HOME: "/",
     DETAILCAR: "/detailcar",
     PAYMENT: "/payment",
+    CATEGORY: "/category",
     NOT_FOUND: "*",
-  CATEGORY: "/category",
-  NOT_FOUND: "*",
+
 };
 
 
