@@ -21,7 +21,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                 onChange={(e) => onChange(e.value)}
                 options={options}
                 placeholder={placeholder}
-                className={`text-gray-500 shadow-none border border-gray-200 focus:ring-0 ${className} ${error ? 'border-red-500' : ''}`}
+                className={`text-gray-500 shadow-none border-0 focus:ring-0 ${className} `}
             />
             {error && <p className="text-sm text-red-500">{error}</p>}
         </div>
