@@ -1,14 +1,15 @@
 
 // BillingSection
 export interface BillingSectionProps {
-    title: string;
-    fields: {
-        label: string;
-        id: string;
-        value: string;
-        onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-        placeholder: string;
-    }[];
+  title: string;
+  fields: {
+    label: string;
+    id: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    placeholder: string;
+    error?: string | undefined;
+  }[];
 }
 
 // RentalSection
@@ -18,7 +19,8 @@ export interface LocationPickerProps {
   onChange: (value: string) => void;
   placeholder: string;
   options: string[];
-  className?: string
+  className?: string;
+  error?: string | undefined;
 }
 
 export interface TimePickerProps {
@@ -28,6 +30,7 @@ export interface TimePickerProps {
   placeholder: string;
   options: string[];
   className?: string;
+  error?: string | undefined;
 }
 export interface DatePickerProps {
   label: string;
@@ -36,6 +39,7 @@ export interface DatePickerProps {
   placeholder: string;
   options: string[];
   className?: string;
+  error?: string | undefined
 }
 // RentalSection
 export interface RentalSectionProps {
@@ -52,6 +56,14 @@ export interface RentalSectionProps {
   setDropOffDate: (value: string) => void;
   setPickUpTime: (value: string) => void;
   setDropOffTime: (value: string) => void;
+  errors?: {
+    pickUpLocation?: string | undefined;
+    dropOffLocation?: string | undefined;
+    pickUpDate?: string | undefined;
+    dropOffDate?: string | undefined;
+    pickUpTime?: string | undefined;
+    dropOffTime?: string | undefined;
+  };
 }
 
 // RadioButtonPicker
@@ -83,6 +95,13 @@ export interface PaymentSectionProps {
   setCardHolder: (value: string) => void;
   setCvc: (value: string) => void;
   setPaymentMethod: (value: string) => void;
+  errors?: {
+    cardNumber?: string | undefined;
+    expiryDate?: string | undefined;
+    cardHolder?: string | undefined;
+    cvc?: string | undefined;
+    paymentMethod?: string | undefined;
+  };
 }
 
 // Checkbox
@@ -94,13 +113,50 @@ export interface CheckboxProps {
 }
 // LabeledInput
 export interface LabeledInputProps {
-        label: string,
-        name?: string,
-        id: string,
-        value: string,
-        onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
-        placeholder: string,
-        disabled?: boolean,
-        className?: string  
-    }
+  label: string;
+  name?: string;
+  id: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder: string;
+  disabled?: boolean;
+  className?: string;
+  error?: string | undefined;
+}
 
+export interface FormValues {
+  name: string;
+  phone: string;
+  address: string;
+  city: string;
+  pickUpLocation: string;
+  dropOffLocation: string;
+  pickUpDate: string;
+  dropOffDate: string;
+  pickUpTime: string;
+  dropOffTime: string;
+  cardNumber: string;
+  expiryDate: string;
+  cardHolder: string;
+  cvc: string;
+  paymentMethod: string;
+  termsAccepted: boolean;
+}
+export interface FormErrors {
+  name?: string;
+  phone?: string;
+  address?: string;
+  city?: string;
+  pickUpLocation?: string;
+  dropOffLocation?: string;
+  pickUpDate?: string;
+  dropOffDate?: string;
+  pickUpTime?: string;
+  dropOffTime?: string;
+  cardNumber?: string;
+  expiryDate?: string;
+  cardHolder?: string;
+  cvc?: string;
+  paymentMethod?: string;
+  termsAccepted?: boolean;
+}

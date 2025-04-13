@@ -1,12 +1,9 @@
-// src/components/PaymentSection.tsx
 import React from 'react';
 import RadioButtonPicker from './RadioButtonPicker';
 import { PaymentSectionProps } from '../types';
 import LabeledInput from './LabeledInput';
-
-import Paypal from '../assets/PayPal.png'
-import Bitcoin from '../assets/Bitcoin.png'
-
+import Paypal from '../assets/PayPal.png';
+import Bitcoin from '../assets/Bitcoin.png';
 
 const PaymentSection: React.FC<PaymentSectionProps> = ({
     title,
@@ -20,6 +17,7 @@ const PaymentSection: React.FC<PaymentSectionProps> = ({
     setCardHolder,
     setCvc,
     setPaymentMethod,
+    errors, 
 }) => {
     return (
         <div className="bg-white p-5 rounded-md mb-7 shadow-sm">
@@ -43,13 +41,15 @@ const PaymentSection: React.FC<PaymentSectionProps> = ({
                         value={cardNumber}
                         onChange={(e) => setCardNumber(e.target.value)}
                         placeholder="Card number"
+                        error={errors?.cardNumber} 
                     />
                     <LabeledInput
                         label="Expiration Date"
                         id="expiryDate"
                         value={expiryDate}
                         onChange={(e) => setExpiryDate(e.target.value)}
-                        placeholder="DD/MM/YY"
+                        placeholder="MM/YY"
+                        error={errors?.expiryDate} 
                     />
                     <LabeledInput
                         label="Card Holder"
@@ -57,6 +57,7 @@ const PaymentSection: React.FC<PaymentSectionProps> = ({
                         value={cardHolder}
                         onChange={(e) => setCardHolder(e.target.value)}
                         placeholder="Card holder"
+                        error={errors?.cardHolder} 
                     />
                     <LabeledInput
                         label="CVC"
@@ -64,6 +65,7 @@ const PaymentSection: React.FC<PaymentSectionProps> = ({
                         value={cvc}
                         onChange={(e) => setCvc(e.target.value)}
                         placeholder="CVC"
+                        error={errors?.cvc}
                     />
                 </div>
             </div>
@@ -87,7 +89,7 @@ const PaymentSection: React.FC<PaymentSectionProps> = ({
                     onChange={setPaymentMethod}
                     icon={Bitcoin}
                 />
-                
+                {errors?.paymentMethod && <p className="text-sm text-red-500">{errors.paymentMethod}</p>}
             </div>
         </div>
     );
