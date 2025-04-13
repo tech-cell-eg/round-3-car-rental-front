@@ -2,7 +2,6 @@ import { Dropdown } from 'primereact/dropdown';
 import { LocationPickerProps } from '../types';
 
 const LocationPicker: React.FC<LocationPickerProps> = ({
-
     label,
     options,
     value,
@@ -30,5 +29,9 @@ const LocationPicker: React.FC<LocationPickerProps> = ({
 };
 
 export default LocationPicker;
+
+
+  
+
 
 
