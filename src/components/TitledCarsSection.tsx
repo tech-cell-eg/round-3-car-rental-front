@@ -1,23 +1,28 @@
+import { Car } from "../types/car";
 import CarsDisplayPanel from "./CarsDisplayPanel";
 import SectionTitle from "./SectionTitle";
 
-interface TitledCarsSetion {
-  count: number;
+interface TitledCarsSection {
+  carList: Car[];
   headingTitle?: string;
   gridCols?: string;
 }
 
-function TitledCarsSetion({ count, headingTitle, gridCols }: TitledCarsSetion) {
+function TitledCarsSection({
+  carList,
+  headingTitle,
+  gridCols,
+}: TitledCarsSection) {
   return (
     <section
       className={`flex flex-col ${
         headingTitle ? "gap-4" : ""
-      } mt-12 py-5 px-3 md:px-8`}
+      } mt-12 py-5 px-3 md:px-8 text-content-dimmed`}
     >
       {headingTitle && <SectionTitle title={headingTitle} />}
-      <CarsDisplayPanel count={count} gridCols={gridCols} />
+      <CarsDisplayPanel carList={carList} gridCols={gridCols} />
     </section>
   );
 }
 
-export default TitledCarsSetion;
+export default TitledCarsSection;

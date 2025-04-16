@@ -1,18 +1,23 @@
 import CarCard from "./CarCard";
+import { Car } from "../types/car";
 
 interface CarsDisplayPanelProps {
-  count: number;
+  carList: Car[];
   gridCols?: string;
+  count?: number;
 }
 
 function CarsDisplayPanel({
-  count,
+  carList,
   gridCols = "md:grid-cols-4",
+  count,
 }: CarsDisplayPanelProps) {
+  const displayedCars = count ? carList.slice(0, count) : carList;
+
   return (
     <div className={`grid grid-cols-1 ${gridCols} gap-8`}>
-      {Array.from({ length: count }).map((_, index) => (
-        <CarCard key={index} />
+      {displayedCars.map((car) => (
+        <CarCard key={car.id} car={car} />
       ))}
     </div>
   );

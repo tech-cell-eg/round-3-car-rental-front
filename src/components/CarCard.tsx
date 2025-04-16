@@ -1,71 +1,81 @@
 import Icon from "./Icon";
 
-function CarCard() {
+type Car = {
+  id: number;
+  name: string;
+  image: string;
+  type: string;
+  gasoline: number;
+  seats: string;
+  steering: string;
+  price: string;
+  sale_price: string | null;
+};
+
+type CarCardProps = {
+  car: Car;
+};
+
+function CarCard({ car }: CarCardProps) {
   return (
     <article className="flex flex-col gap-3 py-5 px-4 md:px-6 bg-surface-default border border-content-dimmed rounded-lg hover:shadow-xl cursor-pointer duration-base">
       {/* CAR INFO */}
       <div className="flex flex-col gap-1">
         <div className="flex justify-between">
-          <h3 className="font-semibold text-content-dark">
-            {/* car name */}
-            Koenigsegg
-          </h3>
-          <div className="heart-icon text-red-500">{/*hert icon*/}❤</div>
+          <h3 className="font-semibold text-content-dark">{car.name}</h3>
+          <div className="heart-icon text-red-500">❤</div>
         </div>
         <h4 className="font-medium text-sm text-content-base leading-[150%]">
-          Sport{/* car type */}
+          {car.type}
         </h4>
       </div>
 
       {/* CONTENT */}
       <div className="flex justify-between items-center md:flex-col gap-1 md:gap-4">
-        <div className="car-image-wrapper w-3/4 md:w-full h-48 bg-slate-200 rounded-lg">
-          {/* CAR IMAGE */}
+        <div className="car-image-wrapper w-3/4 md:w-full h-48 bg-slate-200 rounded-lg overflow-hidden">
+          {car.image ? (
+            <img
+              src={car.image}
+              alt={`${car.name} image`}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="flex items-center justify-center w-full h-full text-center text-sm text-content-base">
+              No Image Available
+            </div>
+          )}
         </div>
 
         {/* CAR DETAILS */}
-        <div className="flex flex-col md:flex-row justify-between gap-3  w-fit md:w-full font-medium text-xs md:text-sm text-content-base leading-[150%]">
+        <div className="flex flex-col md:flex-row justify-between gap-3 w-fit md:w-full font-medium text-xs md:text-sm text-content-base leading-[150%]">
           <div className="flex items-center gap-1 w-full md:w-fit">
             <span className="image">
-              <Icon name="filter" /> {/* tank icon */}
+              <Icon name="filter" />
             </span>
-            <p className="w-full">90L</p> {/*car tank capacity*/}
+            <p className="w-full">{car.gasoline}L</p>
           </div>
 
           <div className="flex items-center gap-1 w-full md:w-fit">
             <span className="image">
-              <Icon name="filter" /> {/* steering icon */}
+              <Icon name="filter" />
             </span>
-            <p className="w-full">Manual</p> {/* sttering type*/}
+            <p className="w-full">{car.steering}</p>
           </div>
 
           <div className="flex justify-between items-center gap-1 w-full md:w-fit">
             <span className="image">
-              <Icon name="filter" /> {/* users icon */}
+              <Icon name="filter" />
             </span>
-            <p className="w-full">2 People</p> {/* seats number */}
+            <p className="w-full">{car.seats} People</p>
           </div>
         </div>
       </div>
 
       {/* PRICES */}
       <div className="flex justify-between items-center">
-        {/* <div className="flex flex-col gap-1 font-bold text-xl text-content-base">
-          original price
-          <div className="flex">
-            <span className="text-content-dark">$ OP /</span>day
-          </div>
-          discount price
-          <div className="flex flex-col">
-            <div className="flex">
-              <span className="text-conetnt-dark">$ SP /</span>day
-            </div>
-            <span className="text-sm line-though">$ old price</span>
-          </div>
-        </div> */}
         <div className="font-semibold text-content-dark">
-          $ 99.00 /{" "}
-          <span className="font-medium text-xs text-content-base">day</span>
+          ${car.sale_price ?? car.price}{" "}
+          <span className="font-medium text-xs text-content-base">/ day</span>
         </div>
 
         {/* RENT NOW BUTTON */}
