@@ -1,11 +1,15 @@
 import HeroSection from "../components/HeroSection";
 import TitledCarsSection from "../components/TitledCarsSection";
 import useFetchCarsList from "../hooks/useFetchCarsList";
+import useFetchRecommendedCars from "../hooks/useFetchRecommendedCars";
 
 function Home() {
-  const { carsList, error } = useFetchCarsList();
+  const { carsList, error: errorOfCars } = useFetchCarsList();
+  const { recommendedCars, error: errorOfRecommended } =
+    useFetchRecommendedCars();
 
-  if (error) return <p>Error: {error}</p>;
+  if (errorOfCars || errorOfRecommended)
+    return <p>Error: {errorOfCars || errorOfRecommended}</p>;
 
   return (
     <section className="bg-surface-secondary">
@@ -18,7 +22,7 @@ function Home() {
       />
 
       <TitledCarsSection
-        carList={carsList.slice(4, 11)}
+        carList={recommendedCars}
         headingTitle="Recommendation Cars"
         gridCols="md:grid-cols-4"
       />
