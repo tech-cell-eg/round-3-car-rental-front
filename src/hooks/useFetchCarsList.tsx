@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Car } from "../types/car";
+import apiEndpoints from "../constants/apiEndpoints";
 
 const useFetchCarsList = () => {
   const [carsList, setCarsList] = useState<Car[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const url =
-    "https://round-3-car-rental-web-api.digital-vision-solutions.com/api/v1/cars";
+  const url: string = apiEndpoints.cars.all;
 
   useEffect(() => {
     axios
@@ -21,7 +21,7 @@ const useFetchCarsList = () => {
           setError("Something went wrong!");
         }
       });
-  }, []);
+  }, [url]);
 
   return { carsList, error };
 };
