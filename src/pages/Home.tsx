@@ -1,36 +1,28 @@
-import { useEffect, useState } from "react";
 import HeroSection from "../components/HeroSection";
 import TitledCarsSection from "../components/TitledCarsSection";
-import { Car } from "../types/car";
+import useFetchCarsList from "../hooks/useFetchCarsList";
+import useFetchRecommendedCars from "../hooks/useFetchRecommendedCars";
 
 function Home() {
-  const [carList, setCarList] = useState<Car[]>([]);
+  const { carsList, error: errorOfCars } = useFetchCarsList();
+  const { recommendedCars, error: errorOfRecommended } =
+    useFetchRecommendedCars();
 
-  const fetchCarList = async () => {
-    const url =
-      "https://round-3-car-rental-web-api.digital-vision-solutions.com/api/v1";
-    const response = await fetch(`${url}/cars`);
-    const data = await response.json();
-    setCarList(data.data);
-    console.log(carList);
-  };
-
-  useEffect(() => {
-    fetchCarList();
-  }, []);
+  if (errorOfCars || errorOfRecommended)
+    return <p>Error: {errorOfCars || errorOfRecommended}</p>;
 
   return (
     <section className="bg-surface-secondary">
       <HeroSection />
 
       <TitledCarsSection
-        carList={carList.slice(0, 3)}
+        carList={carsList.slice(0, 6)}
         headingTitle="Popular Cars"
         gridCols="md:grid-cols-3"
       />
 
       <TitledCarsSection
-        carList={carList.slice(4, 11)}
+        carList={recommendedCars}
         headingTitle="Recommendation Cars"
         gridCols="md:grid-cols-4"
       />
