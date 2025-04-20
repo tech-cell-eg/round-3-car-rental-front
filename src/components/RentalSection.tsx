@@ -23,9 +23,9 @@ const RentalSection: React.FC<RentalSectionProps> = ({
     errors
     
 }) => {
-    const locations = ['Location 1', 'Location 2', 'Location 3'];
-    const dates = ['2025-04-10', '2025-04-11', '2025-04-12'];
-    const times = ['09:00 AM', '12:00 PM', '03:00 PM'];
+    const locations = [1, 2, 3];
+    const dates = ['10/06/2025', '11/06/2025', '12/06/2025'];
+    const times = ['09:00', '12:00', '03:00'];
 
     return (
         <div className="bg-white p-5 rounded-md mb-7 shadow-sm">
