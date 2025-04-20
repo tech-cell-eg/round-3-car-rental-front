@@ -48,9 +48,8 @@ const validationSchema = Yup.object({
     cvc: Yup.string()
         .required("CVC is required")
         .matches(/^\d+$/, "CVC must contain only digits")
-        .matches(/^\d{3,4}$/, "CVC must be 3 or 4 digits"),
-    paymentMethod: Yup.string().required("Payment method is required"),
-
+        .matches(/^\d{3}$/, "CVC must be 3 digits"),
+        
     termsAccepted: Yup.boolean()
         .oneOf([true], "You must accept the terms and conditions")
         .required("You must accept the terms and conditions"),

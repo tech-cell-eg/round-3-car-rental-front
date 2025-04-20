@@ -1,50 +1,57 @@
-const Reviews = () => {
-  const reviewsData = [
-    {
-      name: "Alex Stanton",
-      position: "CEO at Bukalapak",
-      date: "21 July 2022",
-      rating: 5,
-      comment:
-        "We are very happy with the service from the MORENT App. Morent has a low price and also a large variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
-    },
-    {
-      name: "Skylar Dias",
-      position: "CEO at Amazon",
-      date: "20 July 2022",
-      rating: 4,
-      comment:
-        "We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
-    },
-  ];
+import useFetchCarReview from "../hooks/useFetchCarReview";
+import image from "../assets/userAvatar.png"
+interface ReviewProps {
+  id: number; 
+  
+  
+}
+const Reviews : React.FC<ReviewProps> = ({id}) => {
+
+
+
+  const { carReview: reviewsData, loading, error: errorOfReviews } = useFetchCarReview(Number(id));
+  
+  if (errorOfReviews) {
+    return <div className="text-red-500 text-sm text-center">Error: {errorOfReviews}</div>;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="  max-w-7xl mx-auto p-5">
       <div className="rounded-md  bg-white p-5  mb-12">
         <div className="flex justify-between items-center mb-4 bg-white">
-          <h2 className="text-lg font-semibold text-gray-800">
-            Reviews{" "}
-            <span className="bg-blue-600 text-white rounded-full px-2 py-1 text-sm">
-              13
-            </span>
+          <h2 className="text-lg font-semibold text-gray-800 -2">
+            Reviews 
           </h2>
+          <span className="bg-blue-600 text-white rounded-full px-3 py-1text-sm">
+            {reviewsData.length}
+          </span>
         </div>
 
         <div className="space-y-6">
           {reviewsData.map((review, index) => (
             <div key={index} className="flex space-x-4">
-              <div className="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0"></div>
+              <div className="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0">
+                <img
+                  src={image}
+                  alt={review.client.name}
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
 
               <div className="flex-1">
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className="text-base font-semibold text-gray-800">
-                      {review.name}
+                      {review.client.name}
                     </h3>
-                    <p className="text-sm text-gray-500">{review.position}</p>
+                    <p className="text-sm text-gray-500">{review.client.job}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm text-gray-500">{review.date}</p>
+                    <p className="text-sm text-gray-500">{review.created_at}</p>
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
                         <svg
@@ -63,7 +70,7 @@ const Reviews = () => {
                     </div>
                   </div>
                 </div>
-                <p className="mt-2 text-gray-600 text-sm">{review.comment}</p>
+                <p className="mt-2 text-gray-600 text-sm">{review.description}</p>
               </div>
             </div>
           ))}

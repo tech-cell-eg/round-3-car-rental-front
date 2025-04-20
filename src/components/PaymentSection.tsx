@@ -1,9 +1,5 @@
-import React from 'react';
-import RadioButtonPicker from './RadioButtonPicker';
 import { PaymentSectionProps } from '../types';
 import LabeledInput from './LabeledInput';
-import Paypal from '../assets/PayPal.png';
-import Bitcoin from '../assets/Bitcoin.png';
 
 const PaymentSection: React.FC<PaymentSectionProps> = ({
     title,
@@ -11,14 +7,13 @@ const PaymentSection: React.FC<PaymentSectionProps> = ({
     expiryDate,
     cardHolder,
     cvc,
-    paymentMethod,
     setCardNumber,
     setExpiryDate,
     setCardHolder,
     setCvc,
-    setPaymentMethod,
     errors, 
 }) => {
+
     return (
         <div className="bg-white p-5 rounded-md mb-7 shadow-sm">
             <div className="mb-5 px-3 flex justify-between items-center">
@@ -69,28 +64,7 @@ const PaymentSection: React.FC<PaymentSectionProps> = ({
                     />
                 </div>
             </div>
-
-            <div className="flex flex-col gap-3 px-3">
-                <RadioButtonPicker
-                    label="Credit Card"
-                    value="creditCard"
-                    id="creditCard"
-                    name="paymentMethod"
-                    checked={paymentMethod === 'creditCard'}
-                    onChange={setPaymentMethod}
-                    icon={Paypal}
-                />
-                <RadioButtonPicker
-                    label="PayPal"
-                    value="paypal"
-                    id="paypal"
-                    name="paymentMethod"
-                    checked={paymentMethod === 'paypal'}
-                    onChange={setPaymentMethod}
-                    icon={Bitcoin}
-                />
-                {errors?.paymentMethod && <p className="text-sm text-red-500">{errors.paymentMethod}</p>}
-            </div>
+            
         </div>
     );
 };

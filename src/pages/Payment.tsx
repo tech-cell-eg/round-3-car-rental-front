@@ -1,39 +1,17 @@
-import { useFormik } from 'formik';
 import validationSchema from '../validation/paymentvalid';
 import BillingSection from '../components/BillingSection';
 import RentalSection from '../components/RentalSection';
 import PaymentSection from '../components/PaymentSection';
 import ConfirmationSection from '../components/ConfirmationSection';
 import SummarySection from '../components/SummarySection';
+import useCheckoutForm from '../hooks/useCheckoutForm';
+import { useLocation } from 'react-router-dom';
 
 
 const MyForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      name: '',
-      phone: '',
-      address: '',
-      city: '',
-      pickUpLocation: '',
-      dropOffLocation: '',
-      pickUpDate: '',
-      dropOffDate: '',
-      pickUpTime: '',
-      dropOffTime: '',
-      cardNumber: '',
-      expiryDate: '',
-      cardHolder: '',
-      cvc: '',
-      paymentMethod: '',
-      termsAccepted: false
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      console.log('Form submitted:', values);
-    },
-  });
-
-
+  const location = useLocation();
+  const state = location.state as { id: number };
+  const { formik, isLoading } = useCheckoutForm(validationSchema);
   const billingFields = [
     {
       label: 'Name',
@@ -108,18 +86,15 @@ const MyForm = () => {
             expiryDate={formik.values.expiryDate}
             cardHolder={formik.values.cardHolder}
             cvc={formik.values.cvc}
-            paymentMethod={formik.values.paymentMethod}
             setCardNumber={(value: string) => formik.setFieldValue('cardNumber', value)}
             setExpiryDate={(value: string) => formik.setFieldValue('expiryDate', value)}
             setCardHolder={(value: string) => formik.setFieldValue('cardHolder', value)}
             setCvc={(value: string) => formik.setFieldValue('cvc', value)}
-            setPaymentMethod={(value: string) => formik.setFieldValue('paymentMethod', value)}
             errors={{
               cardNumber: formik.touched.cardNumber && formik.errors.cardNumber ? formik.errors.cardNumber : undefined,
               expiryDate: formik.touched.expiryDate && formik.errors.expiryDate ? formik.errors.expiryDate : undefined,
               cardHolder: formik.touched.cardHolder && formik.errors.cardHolder ? formik.errors.cardHolder : undefined,
               cvc: formik.touched.cvc && formik.errors.cvc ? formik.errors.cvc : undefined,
-              paymentMethod: formik.touched.paymentMethod && formik.errors.paymentMethod ? formik.errors.paymentMethod : undefined,
             }}
           />
 
@@ -128,16 +103,16 @@ const MyForm = () => {
             setTermsAccepted={(value: boolean) => formik.setFieldValue('termsAccepted', value)}
             error={formik.touched.termsAccepted && formik.errors.termsAccepted ? formik.errors.termsAccepted : undefined}
           />
-          
+
           <button type="submit" className=" mt-5 bg-blue-700 text-white py-2 px-6 rounded">
-            Rent Now
+            {isLoading ? 'Processing Payment...' : 'Rent Now'}
           </button>
         </form>
-
+        <div>
+        </div>
       </div>
-
       <div className="col-span-12 md:col-span-4 order-1 md:order-2">
-        <SummarySection subtotal={100} tax={10} total={110} />
+        <SummarySection id={state.id} />
       </div>
     </div>
   );
