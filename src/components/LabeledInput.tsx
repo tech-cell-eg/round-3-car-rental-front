@@ -14,7 +14,7 @@ const LabeledInput: React.FC<LabeledInputProps> = ({ label, error, name, id, val
         disabled={disabled}
         className="shadow-none border-none focus:border-none focus:ring-0 w-full rounded-md bg-gray-100 border border-gray-200 text-gray-500 p-3"
       />
-      {error && <p className="text-sm text-red-500">{error}</p>} {/* الخطأ تحت الحقل */}
+      {error && <p className="text-sm text-red-500">{error}</p>} 
     </div>
   );
 };
