@@ -1,6 +1,6 @@
 const ROUTES = {
     HOME: "/",
-    DETAILCAR: "/detailcar",
+    DETAILCAR: "/detailcar/:id",
     PAYMENT: "/payment",
     CATEGORY: "/category",
     NOT_FOUND: "*",
