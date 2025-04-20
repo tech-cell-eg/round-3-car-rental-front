@@ -1,4 +1,3 @@
-
 // BillingSection
 export interface BillingSectionProps {
   title: string;
@@ -18,7 +17,7 @@ export interface LocationPickerProps {
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
-  options: string[];
+  options: number[];
   className?: string;
   error?: string | undefined;
 }
@@ -39,7 +38,7 @@ export interface DatePickerProps {
   placeholder: string;
   options: string[];
   className?: string;
-  error?: string | undefined
+  error?: string | undefined;
 }
 // RentalSection
 export interface RentalSectionProps {
@@ -80,7 +79,7 @@ export interface RadioButtonPickerProps {
 // PickAndDrop
 export interface PickAndDropProps {
   title: string;
-} 
+}
 
 // PaymentSection
 export interface PaymentSectionProps {
@@ -89,27 +88,27 @@ export interface PaymentSectionProps {
   expiryDate: string;
   cardHolder: string;
   cvc: string;
-  paymentMethod: string;
+  // paymentMethod: string;
   setCardNumber: (value: string) => void;
   setExpiryDate: (value: string) => void;
   setCardHolder: (value: string) => void;
   setCvc: (value: string) => void;
-  setPaymentMethod: (value: string) => void;
+  // setPaymentMethod: (value: string) => void;
   errors?: {
     cardNumber?: string | undefined;
     expiryDate?: string | undefined;
     cardHolder?: string | undefined;
     cvc?: string | undefined;
-    paymentMethod?: string | undefined;
+    // paymentMethod?: string | undefined;
   };
 }
 
 // Checkbox
 export interface CheckboxProps {
-    label: string; 
-    onChange: (checked: boolean ) => void;
-    checked: boolean;
-    id: string; 
+  label: string;
+  onChange: (checked: boolean) => void;
+  checked: boolean;
+  id: string;
 }
 // LabeledInput
 export interface LabeledInputProps {
