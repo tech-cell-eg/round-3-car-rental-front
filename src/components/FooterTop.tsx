@@ -1,4 +1,5 @@
 import LinkListFooter from "./LinkListFooter";
+import Logo from "./Logo";
 
 const FooterTop = () => {
   interface Link {
@@ -16,8 +17,8 @@ const FooterTop = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 border-b border-gray-200">
       <div>
-        <h1 className="text-2xl sm:text-3xl font-semibold pb-3 text-blue-700">
-          MORENT
+        <h1 className="text-2xl w-[200px] sm:text-3xl font-semibold pb-3 text-blue-700">
+        <Logo />
         </h1>
         <p className="text-gray-500 text-sm sm:text-base">
           Our vision is to provide convenience <br /> and help increase your
