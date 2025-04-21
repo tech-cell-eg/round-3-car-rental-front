@@ -10,7 +10,7 @@ function CarImage({ carImage, carName }: CarImageProps) {
         <img
           src={carImage}
           alt={`${carName} image`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
         />
       ) : (
         <div className="flex items-center justify-center w-full h-full text-center text-sm text-content-base">
